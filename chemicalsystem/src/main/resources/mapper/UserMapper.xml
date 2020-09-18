@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace=绑定一个对应的Dao接口 -->
+<mapper namespace="com.cmkjspringboot.chemicalsystem.dao.UserDao">
+
+    <!--注册前先判断该用户名是否已存在，
+    登录可复用该方法(根据前端传入的user.usernumber，若结果不为空再比对密码是否正确)-->
+    <select id="findByUsernumber" resultType="User">
+        select * from user where usernumber=#{usernumber};
+    </select>
+
+
+</mapper>
