@@ -18,6 +18,12 @@ import java.util.*;
 
 import static org.springframework.data.domain.Sort.by;
 
+
+/***
+ * describe: 后台人员管理的接口类
+ * author: arthurye
+ */
+
 @RestController
 public class UserController {
     @Autowired
@@ -37,11 +43,7 @@ public class UserController {
 //    salt: 盐，一个128bits随机字符串，22字符
 //    myHash: 经过明文密码password和盐salt进行hash，个人的理解是默认10次下 ，循环加盐hash10次，得到myHash
 //    每次明文字符串myPassword过来，就通过10次循环加盐salt加密后得到myHash, 然后拼接BCrypt版本号+salt盐+myHash等到最终的bcrypt密码 ，存入数据库中。
-//
-//    作者：martin6699
-//    链接：https://www.jianshu.com/p/2b131bfc2f10
-//    来源：简书
-//    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -53,6 +55,12 @@ public class UserController {
         Map<String, Object> map = new HashMap<>();
         try {
             User userDB = userService.login(user);
+            String token = userService.createLoginToken(user);
+            User findByUserNumberResult1 = userDao.findByUsernumber(user.getUsernumber());
+            System.out.println("findByUserNumberResult1:" + findByUserNumberResult1);
+            findByUserNumberResult1.setToken(token);
+            userRepository.save(findByUserNumberResult1);
+            map.put("token", token);
             map.put("state", true);
             map.put("msg", "登录成功！");
         } catch (Exception e) {
@@ -172,5 +180,26 @@ public class UserController {
         //        前端传过来的修改留言请求
         System.out.println("前段传来的请求user"+id);
         userRepository.deleteById(id);
+    }
+
+    //token验证是否过期的方法
+    @PostMapping("/requestTokenStatus")
+    public Boolean requestTokenStatus(@RequestBody Map<String, String> request_map) {
+        System.out.println("前端传来了" +
+                "token验证请求字段信息：" + request_map + "用户名取值：" + request_map.get("user_number"));
+        User findByUserName_Result1 = userDao.findByUsernumber(request_map.get("user_number"));
+        if(findByUserName_Result1 != null)
+        {
+            if(findByUserName_Result1.getToken().equals(request_map.get("token")))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }else
+        {
+            return false;
+        }
     }
 }

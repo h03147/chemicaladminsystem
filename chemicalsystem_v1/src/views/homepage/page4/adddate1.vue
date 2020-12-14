@@ -13,8 +13,8 @@
                             align="left"
                             type="date"
                             placeholder="选择日期"
-                            format="yyyy年MM月dd日"
-                            value-format="yyyy-MM-dd"
+                            format="yyyy年MM月dd日 HH:mm:ss"
+                            value-format="yyyy-MM-dd HH:mm:ss"
                             :picker-options="pickerOptions">
                     </el-date-picker>
                 </el-form-item>
@@ -65,20 +65,6 @@
                     <el-input class="elinputwidthdemo" v-model="ruleForm.approver"></el-input>
                 </el-form-item>
             </el-row>
-
-<!--            <el-form-item label="入库日期" prop="value2">-->
-<!--                <el-date-picker-->
-<!--                        label="入库日期"-->
-<!--                        v-model="ruleForm.value2"-->
-<!--                        align="left"-->
-<!--                        type="date"-->
-<!--                        placeholder="选择日期"-->
-<!--                        format="yyyy年MM月dd日"-->
-<!--                        value-format="yyyy-MM-dd"-->
-<!--                        :picker-options="pickerOptions">-->
-<!--                </el-date-picker>-->
-<!--            </el-form-item>-->
-
             <el-form-item>
                 <el-button class="answerbutton1" type="primary" @click="submitForm('ruleForm')">入库</el-button>
                 <el-button @click="resetForm('ruleForm')">清空</el-button>

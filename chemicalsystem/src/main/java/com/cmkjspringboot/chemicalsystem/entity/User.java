@@ -18,4 +18,5 @@ public class User {
     private String usernumber;
     private String password;
     private String userrole;
+    private String token;
 }

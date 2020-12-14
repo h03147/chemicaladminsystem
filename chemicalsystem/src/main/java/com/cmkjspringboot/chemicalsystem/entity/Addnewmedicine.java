@@ -23,4 +23,5 @@ public class Addnewmedicine {
     private String expiredtime;
     private String storageuser;
     private String approver;
+    private Integer medicinenumber_status;
 }

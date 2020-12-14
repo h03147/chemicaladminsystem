@@ -12,5 +12,12 @@
         select * from user where usernumber=#{usernumber};
     </select>
 
+    <!-- 根据登录账号只查询对应的用户名和用户权限-->
+    <select id="findByLoginUsernumber" resultType="User">
+        select username, userrole
+        from user
+        where usernumber=#{usernumber};
+    </select>
+
 
 </mapper>

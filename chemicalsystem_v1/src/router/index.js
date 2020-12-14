@@ -55,6 +55,11 @@ Vue.use(VueRouter)
         component: () => import('../views/homepage/page3/index2')
       },
       {
+        path: '/page3update1',
+        name: 'Page3Update1',
+        component: () => import('../views/homepage/page3/update1')
+      },
+      {
         path: 'page4index1',
         name: 'Page4Index1',
         component: () => import('../views/homepage/page4/index1')
@@ -75,6 +80,21 @@ Vue.use(VueRouter)
         component: () => import('../views/homepage/page4/adddate1')
       },
       {
+        path: '/page4adddate2',
+        name: 'Page4Adddate2',
+        component: () => import('../views/homepage/page4/adddate2')
+      },
+      {
+        path: '/page4update1',
+        name: 'Page4Update1',
+        component: () => import('../views/homepage/page4/update1')
+      },
+      {
+        path: '/page4update2',
+        name: 'Page4Update2',
+        component: () => import('../views/homepage/page4/update2')
+      },
+      {
         path: 'page5index1',
         name: 'Page5Index1',
         component: () => import('../views/homepage/page5/index1')
@@ -83,6 +103,16 @@ Vue.use(VueRouter)
         path: 'page5index2',
         name: 'Page5Index2',
         component: () => import('../views/homepage/page5/index2')
+      },
+      {
+        path: '/page5exportdate1',
+        name: 'Page5Exportdate1',
+        component: () => import('../views/homepage/page5/exportdate1')
+      },
+      {
+        path: '/page5exportdate2',
+        name: 'Page5Exportdate2',
+        component: () => import('../views/homepage/page5/exportdate2')
       },
       {
         path: 'page6index1',

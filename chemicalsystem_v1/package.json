@@ -8,10 +8,22 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "dayjs": "^1.9.1",
+    "echarts": "^4.9.0",
     "element-ui": "^2.4.5",
+    "file-saver": "^2.0.2",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.0",
+    "mometn": "^0.0.1-security",
+    "path": "^0.12.7",
+    "require": "^2.4.20",
+    "saver": "^0.1.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "xlsx": "^0.16.7",
+    "xlsx-style": "^0.8.13",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -21,6 +33,7 @@
     "axios": "^0.18.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.2",
+    "script-loader": "^0.7.2",
     "vue-cli-plugin-axios": "^0.0.4",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.6.11"

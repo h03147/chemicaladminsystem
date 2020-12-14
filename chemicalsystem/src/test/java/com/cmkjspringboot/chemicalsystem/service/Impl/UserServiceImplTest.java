@@ -19,15 +19,20 @@ class UserServiceImplTest {
 
     @Test
     void login() {
-        User user = new User();
-        user.setUsernumber("abc001");
-        user.setPassword("123456");
-        System.out.println(userService.login(user));
+        try {
+            User user = new User();
+            user.setUsernumber("abc001");
+            user.setPassword("123456");
+            System.out.println(userService.login(user));
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     @Test
     void testbCryptPasswordEncoder() {
-        System.out.println(bCryptPasswordEncoder.encode("yejia888"));
+        System.out.println(bCryptPasswordEncoder.encode("yejia111111"));
     }
 
 
